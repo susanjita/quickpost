@@ -2,12 +2,12 @@
 	"folders": [
 		{
 			"path": "."
-		},
-		{
-			"path": ".."
 		}
 	],
 	"settings": {
-		"java.compile.nullAnalysis.mode": "disabled"
+		"java.compile.nullAnalysis.mode": "disabled",
+		"java.project.sourcePaths": [
+			""
+		]
 	}
 }

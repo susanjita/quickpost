@@ -8,6 +8,8 @@ public class QuickpostApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(QuickpostApplication.class, args);
+
+		System.out.println("hiis");
 	}
 
 }
