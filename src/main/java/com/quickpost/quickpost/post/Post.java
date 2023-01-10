@@ -7,7 +7,13 @@ import lombok.Setter;
 @Setter
 public class Post {
 
+    
+
     int id;
     String postDesc;
+    public Post(int id, String postDesc) {
+        this.id = id;
+        this.postDesc = postDesc;
+    }
     
 }

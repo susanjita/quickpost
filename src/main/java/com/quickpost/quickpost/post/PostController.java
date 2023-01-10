@@ -1,33 +1,38 @@
 package com.quickpost.quickpost.post;
 
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class PostController {
-    @GetMapping
-    public Post getPost(int postId)
+   @Autowired
+    PostService postService;
+
+    @GetMapping("/user/{postId}")
+    public Optional<Post> getPost(@PathVariable int postId)
     {
-        return null;
+        return postService.getPost(postId);
     }
-    @GetMapping
-    public Post getAllPost()
+    @GetMapping("/users")
+    public List<Post> getAllPost()
     {
-        return null;
+        return postService.getAllPost();
     }
     
-    @PostMapping
+    @PostMapping("/createUser")
     public int createPost(String desc)
     {
-        Post post= new Post();
-        post.setId(1);
-        post.setPostDesc(desc);
-        return post.getId();
+        return 0;
     }
 
-    @DeleteMapping
+    @DeleteMapping("/deleteUser")
     public String deletePost(int id)
     {
         return "deleted";
