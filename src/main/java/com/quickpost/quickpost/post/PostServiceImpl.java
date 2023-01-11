@@ -9,17 +9,23 @@ import org.springframework.stereotype.Component;
 public class PostServiceImpl implements PostService{
    
    static List<Post>  postDetails= new ArrayList<>();
-
+   static int i=0;
    static{
 
-    postDetails.add(new Post(1,"my first"));
-    postDetails.add(new Post(2,"mysecond"));
-    postDetails.add(new Post(3,"my third"));
+    postDetails.add(new Post(nextId(),"my first"));
+    postDetails.add(new Post(nextId(),"mysecond"));
+    postDetails.add(new Post(nextId(),"my third"));
    }
-
+   public static int nextId()
+   {
+    i=i+1;
+    return i;
+   }
     @Override
     public void createPost(String postDescription) {
         // TODO Auto-generated method stub
+        Post post= new Post(nextId(), postDescription);
+        postDetails.add(post);
         
     }
 
@@ -42,6 +48,11 @@ public class PostServiceImpl implements PostService{
     public List<Post> getAllPost() {
         // TODO Auto-generated method stub
         return postDetails;
+    }
+    @Override
+    public boolean deletePost(int id) {
+       return  postDetails.removeIf(post-> post.id==id);
+        
     }
     
 }

@@ -15,5 +15,8 @@ public interface PostService {
     public Optional<Post> getPost(int id);
 
     public List<Post> getAllPost();
+
+    public boolean deletePost(int id);
+   
     
 }
